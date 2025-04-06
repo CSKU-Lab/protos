@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package config.v1;
+
+option go_package = "github.com/CSKU-Lab/config-server/grpc/config/v1";
+
+service ConfigService {
+  rpc GetLanguages(GetLanguagesRequest) returns (GetLanguagesResponse) {}
+}
+
+message GetLanguagesResponse {
+  repeated Language languages = 1;
+}
+
+message GetLanguagesRequest {
+  bool include_name = 1;
+  bool include_version = 2;
+}
+
+message Language {
+  string id = 1;
+  optional string name = 2;
+  optional string version = 3;
+  string build_script = 4;
+  string run_script = 5;
+}

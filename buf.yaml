@@ -3,6 +3,10 @@ version: v2
 lint:
   use:
     - STANDARD
+  rpc_allow_google_protobuf_empty_responses: true
+  except:
+    - RPC_REQUEST_RESPONSE_UNIQUE
+    - RPC_RESPONSE_STANDARD_NAME
 breaking:
   use:
     - FILE

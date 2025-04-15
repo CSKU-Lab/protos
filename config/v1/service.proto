@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package config.v1;
+
+import "config/v1/compares.proto";
+import "google/protobuf/empty.proto";
+import "config/v1/languages.proto";
+
+option go_package = "github.com/CSKU-Lab/config-server/grpc/config/v1";
+
+service ConfigService {
+  rpc GetLanguages(GetLanguagesRequest) returns (GetLanguagesResponse) {}
+  rpc GetLanguage(GetLanguageRequest) returns (LanguageResponse) {}
+  rpc AddLanguage(AddLanguageRequest) returns (LanguageResponse) {}
+  rpc UpdateLanguage(UpdateLanguageRequest) returns (LanguageResponse) {}
+  rpc DeleteLanguage(DeleteLanguageRequest) returns (google.protobuf.Empty) {}
+
+  rpc GetCompares(google.protobuf.Empty) returns (GetComparesResponse) {}
+  rpc GetCompare(GetCompareRequest) returns (CompareResponse) {}
+  rpc AddCompare(AddCompareRequest) returns (CompareResponse) {}
+  rpc UpdateCompare(UpdateCompareRequest) returns (CompareResponse) {}
+  rpc DeleteCompare(DeleteCompareRequest) returns (google.protobuf.Empty) {}
+}

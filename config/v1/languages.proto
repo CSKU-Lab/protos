@@ -1,18 +1,7 @@
 syntax = "proto3";
 
 package config.v1;
-
-import "google/protobuf/empty.proto";
-
 option go_package = "github.com/CSKU-Lab/config-server/grpc/config/v1";
-
-service ConfigService {
-  rpc GetLanguages(GetLanguagesRequest) returns (GetLanguagesResponse) {}
-  rpc GetLanguage(GetLanguageRequest) returns (LanguageResponse) {}
-  rpc AddLanguage(AddLanguageRequest) returns (LanguageResponse) {}
-  rpc UpdateLanguage(UpdateLanguageRequest) returns (LanguageResponse) {}
-  rpc DeleteLanguage(DeleteLanguageRequest) returns (google.protobuf.Empty) {}
-}
 
 message GetLanguagesResponse {
   repeated Language languages = 1;
@@ -24,8 +13,10 @@ message GetLanguagesRequest {
 }
 
 message GetLanguageRequest {
-  bool include_name = 1;
-  bool include_version = 2;
+  reserved 1, 2, 3;
+  string id = 4;
+  bool include_name = 5;
+  bool include_version = 6;
 }
 
 message Language {

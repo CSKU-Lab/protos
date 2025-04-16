@@ -11,6 +11,7 @@ message CompareResponse {
   string build_script = 4;
   string run_script = 5;
   string script_name = 6;
+  string run_name = 7;
 }
 
 message GetComparesResponse {
@@ -27,6 +28,7 @@ message AddCompareRequest {
   string build_script = 3;
   string run_script = 4;
   string script_name = 5;
+  string run_name = 6;
 }
 
 message UpdateCompareRequest {
@@ -36,6 +38,7 @@ message UpdateCompareRequest {
   optional string build_script = 4;
   optional string run_script = 5;
   optional string script_name = 6;
+  optional string run_name = 7;
 }
 
 message DeleteCompareRequest {
